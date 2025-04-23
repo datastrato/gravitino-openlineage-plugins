@@ -1,1 +1,14 @@
-# gravitino-openlineage-plugins
+# gravitino-openLineage-plugins
+
+## Gravitino Spark OpenLineage plugin
+
+Gravitino Spark OpenLineage plugin could transform OpenLineage dataset identifier to Gravitino dataset identifier, please refer to [Gravitino Spark Lineage page](https://gravitino.apache.org/docs/latest/lineage/gravitino-spark-lineage) for more details.
+
+#### Changelog
+
+- 1.31.0-datastrato-1
+  - Based on OpenLineage 1.31.0.
+  - Supports Gravitino Spark connector and non-Gravitino Spark connector.
+  - Supports extract Gravitino dataset from GVFS.
+  - Supports extract Gravitino dataset from Gravitino managed Hive, JDBC, Iceberg, Paimon tables.
+  - Supports transform to Gravitino dataset from non-Gravitino managed Hive, JDBC, Iceberg tables.
