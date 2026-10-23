@@ -18,7 +18,7 @@ Gravitino Spark OpenLineage plugin could transform OpenLineage dataset identifie
   - Supports extract Gravitino dataset from GVFS.
   - Supports extract Gravitino dataset from Gravitino managed Hive, JDBC, Iceberg, Paimon tables.
   - Supports transform to Gravitino dataset from non-Gravitino managed Hive, JDBC, Iceberg tables.
-  - Fix: for Iceberg tables written through the Gravitino Iceberg REST service, the Gravitino catalog-qualified name is now emitted as a `TABLE` symlink on the physical (storage-location) dataset instead of as a separate, facet-less dataset. Lineage browsed by catalog now resolves to the full record with correct source, schema and column lineage (enterprise-ui #847).
+  - Fix: for Iceberg tables written through the Gravitino Iceberg REST service, the Gravitino catalog-qualified name is now emitted as a `TABLE` symlink on the physical (storage-location) dataset instead of as a separate, facet-less dataset. The canonical dataset is built directly from the physical location, bypassing the Gravitino namespace rewrite, so it matches the storage-location record emitted on the read path and Marquez collapses both into one record. When the metalake is not configured (plain Iceberg REST catalog), the physical dataset is still emitted and only the catalog alias symlink is skipped, so lineage is never dropped. Lineage browsed by catalog now resolves to the full record with correct source, schema and column lineage (enterprise-ui #847).
 
 - 1.31.0-datastrato-1
   - Based on OpenLineage 1.31.0.
